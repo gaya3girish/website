@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('s.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Glassmorphism Container */
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent for better contrast */
+            backdrop-filter: blur(10px); /* Glass effect */
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            color: #FFD700; /* Gold for a premium look */
+        }
+
+        /* Form Styling */
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #FFA500; /* Orange for good contrast */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            text-align: left;
+            font-size: 16px;
+            margin: 5px 0;
+            color: white;
+        }
+
+        /* Input Fields Styling */
+        input {
+            padding: 12px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            outline: none;
+            transition: 0.3s ease;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        input:focus {
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid #FFD700;
+        }
+
+        /* Button Styling */
+        button {
+            padding: 12px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s ease;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .signup-btn { background-color: #FFA500; } /* Orange */
+        .back-btn { background-color: #DC143C; } /* Crimson */
+
+        button:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form id="signup-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required placeholder="Enter your username">
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required placeholder="Enter your password">
+            
+            <button class="signup-btn" type="submit">Sign Up</button>
+        </form>
+        <button class="back-btn" onclick="window.location.href='index.html'">Back to Main Page</button>
+    </div>
+
+    <script>
+        document.getElementById("signup-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevents the form from actually submitting
+
+            // Store user details in localStorage
+            var username = document.getElementById("username").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            localStorage.setItem("Username", username);
+            localStorage.setItem("Email", email);
+            localStorage.setItem("Password", password);
+
+            // Redirect to home page after successful sign-up
+            window.location.href = "h.html";
+        });
+    </script>
+</body>
+</html>

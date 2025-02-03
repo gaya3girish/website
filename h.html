@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('villa1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: white;
+            display: flex;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Profile Section */
+        .profile {
+            margin-left: 270px;
+            padding: 40px;
+        }
+
+        /* Welcome Text - High Visibility */
+        .welcome-text {
+            font-size: 28px;
+            font-weight: bold;
+            color: #FFD700; /* Gold color for high contrast */
+            text-shadow: 2px 2px 5px black;
+        }
+
+        .profile-card {
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+        }
+
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid white;
+            margin-right: 20px;
+        }
+
+        .profile-info {
+            font-size: 18px;
+        }
+
+        .logout-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+
+        .logout-btn:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <a href="#">🏠 Home</a>
+        <a href="#">⚙️ Settings</a>
+        <a href="#">📧 Messages</a>
+        <a href="#">📞 Contact Support</a>
+    </div>
+
+    <!-- Profile Section -->
+    <div class="profile">
+        <h1 class="welcome-text">Welcome, <span id="userName">User</span>!</h1>
+
+        <div class="profile-card">
+            <img id="profilePic" src="profile1.jpg" onerror="this.onerror=null; this.src='https://via.placeholder.com/100';" alt="User Profile">
+            <div class="profile-info">
+                <p><strong>Email:</strong> <span id="emailDisplay">Loading...</span></p>
+            </div>
+        </div>
+
+        <button class="logout-btn" onclick="window.location.href='index.html'">Logout</button>
+    </div>
+
+    <script>
+        // Retrieve stored email (without password)
+        window.onload = function() {
+            var email = localStorage.getItem("Email") || "Not provided";
+            document.getElementById("emailDisplay").textContent = email;
+            document.getElementById("userName").textContent = email.split('@')[0]; // Display name from email
+        };
+    </script>
+
+</body>
+</html>
